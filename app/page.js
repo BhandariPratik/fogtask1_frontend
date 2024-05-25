@@ -58,8 +58,8 @@ export default function Home() {
             }
           </div>
 
-          <div className='col-6 mx-8 ' onMouseLeave={() => setDetails(null)} >
-            {details == null ? '' : <img src={`${details?.battleimage}`} alt='battle_image' className='battleImage mb-3' />}
+          <div className='col-6 mx-8 w-96 ' onMouseLeave={() => setDetails(null)} >
+            {details == null ? '' : <img src={`${details?.battleimage}`} alt='battle_image' className='battleImage mb-3 ' />}
             <span className='battleTitle text-white font-bold ' onMouseLeave={() => setDetails(null)}> {details?.name.toUpperCase()}</span>
             <div onMouseLeave={() => setDetails(null)} className='detail text-black text-bold text-xs break-all battledetails'>
               {details?.description}
