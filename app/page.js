@@ -48,7 +48,7 @@ export default function Home() {
             {
               pagedata?.map((ele, ind) =>
               (
-                <div className='battles border-t-2 border-gray-500 p-1 group hover:bg-white' onMouseEnter={() => { setDetails(ele) }}>
+                <div key={ind} className='battles border-t-2 border-gray-500 p-1 group hover:bg-white' onMouseEnter={() => { setDetails(ele) }}>
                   <span className={`font-bold ${ind < 3 ? 'text-orange-500' : 'text-white'} group-hover:text-black battlemname`}>
                     {(ele?.name).toUpperCase()}
                   </span>
