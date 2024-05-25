@@ -66,25 +66,41 @@ export default function Home() {
             </div>
           </div>
 
-          <div className='col-3 py-3 rightsidebar  absolute ml-0 top-0 right-0 w-auto h-screen' onMouseLeave={() => { setDetails(null) }}>
-            <div className='images my-2'>
-              <div className=''>
+          <div className='col-3 p-2 rightsidebar group absolute ml-0 top-0 right-0 w-auto h-screen' onMouseLeave={() => { setDetails(null) }}>
+            <div className='images py-3 group-hover:border-t-2 border-white'>
+              <div className='flex items-center '>
                 <img src='/squad.png' alt='sqad' className='Icon' />
+                <span className='hidden group-hover:block ml-2 text-white text-bold text-xs' style={{fontSize:'10px'}}> SQUAD </span>
               </div>
 
-              <div className='hover:bg-white flex m-0' >
-                <img src='/join.png' alt='join' className='mainIcon mt-2 w-8' />
+              <div className=' flex items-center mt-2 ' >
+                <img src='/join.png' alt='join' className=' mainIcon w-9 h-9' />
+                <span className='hidden group-hover:block pl-1 py-2 text-white text-bold userName text-sm' style={{fontSize:'12px'}}> Squad Join</span>
               </div>
             </div>
 
-            <div className='images mt-4 '>
-              <img src='/online.png' alt='sqad' className='Icon' />
-              <img src='/profile1.png' alt='join' className='mainIcon mt-2 w-8' />
+            <div className='images py-3 group-hover:border-t-2 border-white'>
+              <div className='flex items-center '>
+                <img src='/online.png' alt='sqad' className='Icon' />
+                <span className='hidden group-hover:block ml-2 text-white text-bold text-xs' style={{fontSize:'10px'}}> ONLINE </span>
+              </div>
+
+              <div className=' flex items-center mt-2 ' >
+                <img src='/profile1.png' alt='join' className=' mainIcon w-9 h-9' />
+                <span className='hidden group-hover:block pl-1 py-2 text-white text-bold userName text-sm' style={{fontSize:'12px'}}> Pratik</span>
+              </div>
             </div>
 
-            <div className='images mt-4'>
-              <img src='/offline.png' alt='sqad' className='Icon' />
-              <img src='/profile2.png' alt='join' className='mainIcon mt-2 w-8' />
+            <div className='images py-3 group-hover:border-t-2 border-white'>
+              <div className='flex items-center '>
+                <img src='/offline.png' alt='sqad' className='Icon ' />
+                <span className='hidden group-hover:block ml-2 text-white text-bold text-xs' style={{fontSize:'10px'}}> OFFLINE</span>
+              </div>
+
+              <div className=' flex items-center mt-2 ' >
+                <img src='/profile2.png' alt='join' className=' mainIcon w-9 h-9' />
+                <span className='hidden group-hover:block pl-1 py-2 text-white text-bold userName text-sm' style={{fontSize:'12px'}}> Darshan</span>
+              </div>
             </div>
           </div>
         </div>
