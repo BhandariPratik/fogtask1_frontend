@@ -1,10 +1,38 @@
-import react from 'react';
 
+'use client'
+import react, { useState, useEffect, useRef } from 'react';
+import axios from 'axios';
 
 export default function Home() {
+
+  const initRender = useRef(true);
+  const [pagedata, setData] = useState([]);
+  const [details, setDetails] = useState(null)
+  console.log('detailssssssss', details)
+
+  useEffect(() => {
+    if (initRender.current == true) {
+      pageData();
+    }
+    initRender.current = false
+
+  }, [])
+
+  const pageData = (async () => {
+    try {
+      let res = await axios.get('http://localhost:4000/api/v1/battleList')
+
+      console.log('response', res)
+      await setData(res?.data?.data?.data)
+    }
+    catch (err) {
+      console.log('error', err)
+    }
+
+  })
+
   return (
     <>
-
       <div className='main l p-4 relative'>
         <div className=' title flex '>
           <img src='/backIcon.svg' alt="backIcon" className='backIcon' />
@@ -16,40 +44,29 @@ export default function Home() {
         </div>
 
         <div className='row mt-5  flex'>
-          <div className='col-3 flex-grow'>
+          <div className='col-3 '>
+            {
+              pagedata?.map((ele, ind) =>
+              (
+                <div className='battles border-t-2 border-gray-500 p-1 group hover:bg-white' onMouseEnter={() => { setDetails(ele) }}>
+                  <span className={`font-bold ${ind < 3 ? 'text-orange-500' : 'text-white'} group-hover:text-black battlemname`}>
+                    {(ele?.name).toUpperCase()}
+                  </span>
+                </div>
+              )
+              )
+            }
+          </div>
 
-            <div className='battles hover:bg-white border-t-2 border-gray-500 p-2'>
-              <span className='font-bold text-xs text-orange-600 '>
-                LARGE SCALE BATTLE
-              </span>
-            </div>
-
-            <div className='battles hover:bg-white border-t-2 border-gray-500 p-2'>
-              <span className='font-bold text-xs text-orange-600 '>
-                LARGE SCALE BATTLE
-              </span>
-            </div>
-            <div className='battles hover:bg-white border-t-2 border-gray-500 p-2'>
-              <span className='font-bold text-xs text-orange-600 '>
-                LARGE SCALE BATTLE
-              </span>
-            </div>
-            <div className='battles hover:bg-white border-t-2 border-gray-500 p-2'>
-              <span className='font-bold text-xs text-orange-600 '>
-                LARGE SCALE BATTLE
-              </span>
+          <div className='col-6 mx-8 ' onMouseLeave={() => setDetails(null)} >
+            {details == null ? '' : <img src={`${details?.battleimage}`} alt='battle_image' className='battleImage mb-3' />}
+            <span className='battleTitle text-white font-bold ' onMouseLeave={() => setDetails(null)}> {details?.name.toUpperCase()}</span>
+            <div onMouseLeave={() => setDetails(null)} className='detail text-black text-bold text-xs break-all battledetails'>
+              {details?.description}
             </div>
           </div>
 
-          <div className='col-6  mx-2'>
-            <img src='/battle_image.png' alt='battle_image' className='battleImage mb-3' />
-            <span className='battleTitle text-white font-bold '> LARGE SCALE BATTLE</span>
-            <div className='detail text-white text-xs break-all battledetails'>
-              Battle field at bestBattle field at bestBattle field at bestBattle
-              field at bestBattle field at bestBattle field at bestBattle field at best</div>
-          </div>
-
-          <div className='col-3 py-3 rightsidebar  absolute ml-0 top-0 right-0 w-auto h-screen'>
+          <div className='col-3 py-3 rightsidebar  absolute ml-0 top-0 right-0 w-auto h-screen' onMouseLeave={() => { setDetails(null) }}>
             <div className='images my-2'>
               <div className=''>
                 <img src='/squad.png' alt='sqad' className='Icon' />
@@ -72,6 +89,8 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+
 
     </>
   );

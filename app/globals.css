@@ -12,25 +12,26 @@ body {
   margin: 0;
   padding: 0;
   background-repeat: no-repeat;
-  
+  /* font-family: 'Rajdhani'   */
 }
 
+*{
+  font-family: 'Rajdhani';
+}
 
 .title1{
   font-size: xx-small;
 }
 
-.battles:hover{
-  color: black;
-}
-
 .battleImage{
   height: 130px;
-  width: 400px;
+  width: 100%;
+  max-width: '400px';
 }
 
 .battledetails{
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
 }
 
 .main {
@@ -55,6 +56,10 @@ body {
   opacity: 0 ;
 }
 
+.battlemname{
+  font-size: x-small;
+}
+
 /* Tablets */
 @media (min-width: 768px) and (max-width: 1024px) {
   body {
@@ -76,6 +81,14 @@ body {
 
   .backIcon{
     /* width: '150px'; */
+  }
+
+  .battlemname{
+    font-size: '5px';
+  }
+
+  .rightsidebar:hover{
+      width: 100px !important;
   }
 
 }
