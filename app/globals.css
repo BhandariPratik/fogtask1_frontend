@@ -2,32 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-image: url('../public/background.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  /* width: 100vw; */
+  margin: 0;
+  padding: 0;
+  background-repeat: no-repeat;
+  
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+
+.title1{
+  font-size: xx-small;
+}
+
+.battles:hover{
+  color: black;
+}
+
+.battleImage{
+  height: 130px;
+  width: 400px;
+}
+
+.battledetails{
+  width: 400px;
+}
+
+.main {
+  position: relative;
+}
+
+.rightsidebar:hover{
+  width:200px !important;
+  background-color: rgba(0, 0, 0, 1);
+  opacity: 0.3 ;
+}
+
+.Icon{
+
+}
+
+.mainIcon{
+
+}
+
+.rightsidebar.Icon:hover{
+  opacity: 0 ;
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+      /* background-size: cover;  */
   }
+
+  .backIcon{
+    /* height: '20px'; */
+    /* color: white; */
+    /* background-color: blueviolet; */
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 767px) {
+  body {
+      /* background-size: cover;  */  
+  }
+
+  .backIcon{
+    /* width: '150px'; */
+  }
+
 }
